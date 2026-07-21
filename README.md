@@ -6,6 +6,8 @@
 
 **Your AI coding agent will leak secrets and ship backdoors. Here's proof — and exactly how the attacks work.**
 
+![AgentPwn demo — the agent refuses a direct request to leak the .env, then leaks it anyway when pointed at a poisoned onboarding doc](docs/demo.gif)
+
 ### ▶︎ Play it in your browser: **https://sjh9714.github.io/agentpwn/** — no install, no API key.
 
 AgentPwn is a self-hostable security lab where *you* are the attacker. You prompt-inject a **simulated** AI coding agent into leaking `.env` secrets, shipping malicious commits past a review scanner, and smuggling AWS keys out through a poisoned MCP tool. Every level is modeled on a real 2025–2026 incident.
