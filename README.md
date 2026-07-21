@@ -1,6 +1,12 @@
 # AgentPwn
 
+[![ci](https://github.com/sjh9714/agentpwn/actions/workflows/ci.yml/badge.svg)](https://github.com/sjh9714/agentpwn/actions/workflows/ci.yml)
+[![play](https://img.shields.io/badge/play-live%20demo-39d98a)](https://sjh9714.github.io/agentpwn/)
+[![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 **Your AI coding agent will leak secrets and ship backdoors. Here's proof — and exactly how the attacks work.**
+
+### ▶︎ Play it in your browser: **https://sjh9714.github.io/agentpwn/** — no install, no API key.
 
 AgentPwn is a self-hostable security lab where *you* are the attacker. You prompt-inject a **simulated** AI coding agent into leaking `.env` secrets, shipping malicious commits past a review scanner, and smuggling AWS keys out through a poisoned MCP tool. Every level is modeled on a real 2025–2026 incident.
 
