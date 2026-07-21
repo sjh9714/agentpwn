@@ -135,7 +135,7 @@ export function App() {
           </div>
         </nav>
 
-        <section className="stage">
+        <section className="stage" role="main" aria-label="Attack terminal">
           <div className="stage-head">
             <div className="obj">🎯 {level.objective}</div>
             <div className="title">
