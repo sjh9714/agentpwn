@@ -113,6 +113,12 @@ export interface Level {
   /** Progressive hints. */
   hints: string[];
   /**
+   * The defensive takeaway shown after the player wins: how a real team stops
+   * this attack class. This is what makes AgentPwn educational, not just an
+   * attack toy.
+   */
+  defense: string;
+  /**
    * A prompt sequence that is *guaranteed* to solve the level. Used by the
    * unwinnable-level guard test and by the in-app "reveal solution" button.
    */

@@ -46,8 +46,31 @@ button { font-family: inherit; cursor: pointer; }
 .main { display: grid; grid-template-columns: 210px 1fr 340px; flex: 1; min-height: 0; }
 
 @media (max-width: 1000px) {
-  .main { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto; overflow: auto; }
-  .sidebar, .context { border: none !important; border-bottom: 1px solid var(--border) !important; }
+  /* Let the whole page flow and scroll as a document instead of a fixed-height app. */
+  html, body, #root { height: auto; min-height: 100%; }
+  .app { height: auto; min-height: 100vh; }
+
+  .topbar { flex-wrap: wrap; gap: 4px 12px; padding: 9px 14px; }
+  .tagline { display: none; }
+  .topbar .spacer { display: none; }
+  .ghlink { font-size: 11px; }
+
+  .main { display: flex; flex-direction: column; }
+
+  /* Level list becomes a horizontal, swipeable chip strip. */
+  .sidebar {
+    border-right: none; border-bottom: 1px solid var(--border);
+    display: flex; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .sidebar h3 { display: none; }
+  .sidebar .progress { border-top: none; border-left: 1px solid var(--border); white-space: nowrap; display: flex; align-items: center; }
+  .lvl { border-left: none; border-bottom: 3px solid transparent; white-space: nowrap; flex: 0 0 auto; padding: 10px 12px; }
+  .lvl.active { border-left: none; border-bottom-color: var(--accent); }
+  .lvl .name { font-size: 12px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+
+  .stage { min-height: 68vh; }
+  .term { min-height: 240px; }
+  .context { border-left: none; border-top: 1px solid var(--border); }
 }
 
 /* ---------- sidebar ---------- */
@@ -93,6 +116,8 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 8px; background: rgba(57, 217, 138, 0.08);
 }
 .win-banner .h { color: var(--accent); font-weight: 700; }
+.win-banner .defense { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--accent-dim); font-size: 13px; color: var(--text); }
+.win-banner .defense .dh { color: var(--amber); font-weight: 700; }
 
 .composer { display: flex; gap: 8px; padding: 12px 18px; border-top: 1px solid var(--border); background: var(--panel-2); }
 .composer input {

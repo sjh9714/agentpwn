@@ -157,6 +157,9 @@ export function App() {
                 <div style={{ color: 'var(--muted)', fontSize: 12 }}>
                   The win was judged on the structured tool-call arguments, not on the agent's words.
                 </div>
+                <div className="defense">
+                  <span className="dh">🛡 The fix</span> {level.defense}
+                </div>
               </div>
             )}
             {messages.map((m, i) => (

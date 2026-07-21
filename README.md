@@ -42,8 +42,10 @@ Each level maps to a real, documented failure mode of AI coding agents.
 | 4 | The Tool That Reads Your Mind | **MCP tool-description injection** — a hidden directive in a tool's *description* hijacks the call | Poisoned-MCP-server campaigns (2025–2026) |
 | 5 | Borrowed Trust | **Trust-metadata forgery** — a forged `Co-authored-by` trailer triggers an auto-merge exception | Bot-identity abuse in auto-merge policies |
 | 6 | Exfil Through the Front Door | **Trusted-channel exfiltration** — data leaves past an egress allowlist via a public gist | Exfil via allowlisted hosts (gists / issues / registries) |
+| 7 | Confused Deputy | **Privilege escalation across delegation** — a read-only agent leaks a key it never had by delegating to a privileged sub-agent | Confused-deputy attacks in multi-agent setups |
+| 8 | The Diff You Didn't Approve | **Approval-summary blindness** — a skimmer ships past a human who approves the agent's summary, not the diff | Payloads hidden in vendored / minified / generated files |
 
-Each level teaches one lesson about why the naive defense (a keyword blocklist, a source-only scanner, a host allowlist) fails, and what actually stops it.
+Each level teaches one lesson about why the naive defense (a keyword blocklist, a source-only scanner, a host allowlist) fails, and what actually stops it. When you win, the level shows a **🛡 The fix** panel — the defensive takeaway. They're collected in [docs/DEFENSES.md](docs/DEFENSES.md).
 
 ## How winning is judged
 
@@ -71,7 +73,7 @@ A level's `winCondition` inspects those arguments — e.g. "did the secret value
 
 ## Contributing a level
 
-A level is a single file in `src/levels/` implementing the `Level` interface (`src/engine/types.ts`): a virtual filesystem, a set of deterministic `AgentRule`s, a `winCondition`, and — required — an `intendedSolution` the test suite verifies. If your level isn't winnable by its own intended solution, CI fails. PRs for new attack classes are very welcome.
+A level is a single file in `src/levels/` implementing the `Level` interface (`src/engine/types.ts`): a virtual filesystem, deterministic `AgentRule`s, a `winCondition`, a `defense`, and — required — an `intendedSolution` the test suite verifies. If your level isn't winnable by its own intended solution, CI fails. New attack classes are exactly what this project wants — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
